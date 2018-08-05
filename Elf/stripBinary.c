@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 	/* variables */
 	int fd;
 	int* arch = malloc(sizeof(int));
-	
+
 
 	/* Check args */
 	if(argc != 2) {
@@ -204,9 +204,15 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
+	free(section_count);
+	free(string_index);
+
 
 	printf("[+]\tClosing file and Map\n");
+	close(addr);
 	close(fd);
+
+	free(addr);
 
 	return 0;
 }
